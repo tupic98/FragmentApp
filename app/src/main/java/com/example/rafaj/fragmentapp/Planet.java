@@ -3,18 +3,19 @@ package com.example.rafaj.fragmentapp;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class PLanet implements Parcelable{
+public class Planet implements Parcelable{
 
-    private String nombre, description;
+    private String nombre, description, mindescription;
     private int id;
 
-    public PLanet(String nombre, String description, int id) {
+    public Planet(String nombre, String description, String mindescription, int id) {
+        this.mindescription = mindescription;
         this.nombre = nombre;
         this.description = description;
         this.id = id;
     }
 
-    protected PLanet(Parcel in) {
+    protected Planet(Parcel in) {
         nombre = in.readString();
         description = in.readString();
         id = in.readInt();
@@ -32,15 +33,15 @@ public class PLanet implements Parcelable{
         return 0;
     }
 
-    public static final Creator<PLanet> CREATOR = new Creator<PLanet>() {
+    public static final Creator<Planet> CREATOR = new Creator<Planet>() {
         @Override
-        public PLanet createFromParcel(Parcel in) {
-            return new PLanet(in);
+        public Planet createFromParcel(Parcel in) {
+            return new Planet(in);
         }
 
         @Override
-        public PLanet[] newArray(int size) {
-            return new PLanet[size];
+        public Planet[] newArray(int size) {
+            return new Planet[size];
         }
     };
 
@@ -57,4 +58,7 @@ public class PLanet implements Parcelable{
         return description;
     }
 
+    public String getMindescription() {
+        return mindescription;
+    }
 }
