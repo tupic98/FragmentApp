@@ -19,13 +19,7 @@ import android.widget.Toast;
 
 public class FragmentList extends ListFragment implements AdapterView.OnItemClickListener{
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.list_fragment, container, false);
-        return view;
-    }
-
+    private Planet planet[] = new Planet[9];
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -35,6 +29,19 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
+
+    @Override
+    public View onCreateView(AdapterView<?> adapterView, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        for(int i = 0; i < 9; i++){ //name, desc, mindesc, id
+            planet[i] = new Planet(adapterView.getItemAtPosition(i).toString(),"fadsf","fds", );
+        }
+
+        View view = inflater.inflate(R.layout.list_fragment, container, false);
+        return view;
+    }
+
+
+
 
 
     @Override
