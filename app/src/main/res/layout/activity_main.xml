@@ -12,10 +12,6 @@
         android:layout_height="match_parent"
         android:name="com.example.rafaj.fragmentapp.FragmentList"
         android:id="@+id/list">
-
-
-
-
     </fragment>
 
 
