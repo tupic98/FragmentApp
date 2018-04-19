@@ -6,26 +6,28 @@ import android.os.Parcelable;
 public class Planet implements Parcelable{
 
     private String nombre, description, mindescription;
-    private int id;
+    private int image;
 
-    public Planet(String nombre, String description, String mindescription, int id) {
+    public Planet(String nombre, String description, String mindescription, int image) {
         this.mindescription = mindescription;
         this.nombre = nombre;
         this.description = description;
-        this.id = id;
+        this.image = image;
     }
 
     protected Planet(Parcel in) {
         nombre = in.readString();
         description = in.readString();
-        id = in.readInt();
+        mindescription = in.readString();
+        image = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(nombre);
         dest.writeString(description);
-        dest.writeInt(id);
+        dest.writeString(mindescription);
+        dest.writeInt(image);
     }
 
     @Override
@@ -50,8 +52,8 @@ public class Planet implements Parcelable{
         return nombre;
     }
 
-    public int getId() {
-        return id;
+    public int getImage() {
+        return image;
     }
 
     public String getDescription() {
