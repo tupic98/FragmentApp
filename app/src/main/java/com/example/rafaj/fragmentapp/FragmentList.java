@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,29 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
     private Planet planet[] = new Planet[9];
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        String[] titles = getResources().getStringArray(R.array.Planets);
+        String[] mindesc = getResources().getStringArray(R.array.minDesc);
+        String[] desc = getResources().getStringArray(R.array.Desc);
+        TypedArray img = getResources().obtainTypedArray(R.array.img);
+        for(int i = 0; i<planet.length; i++){
+            planet[i] = new Planet(titles[i],desc[i],mindesc[i], img.getResourceId(i, -1));
+        }
+       /* planet[0] = new Planet(titles[0],"dfhdshklashgfs","hfhf", R.drawable.sun);
+        planet[1] = new Planet(titles[1],"dfhdshklashgfs","hfhf", R.drawable.mercury);
+        planet[2] = new Planet(titles[2],"dfhdshklashgfs","hfhf", R.drawable.venus);
+        planet[3] = new Planet(titles[3],"dfhdshklashgfs","hfhf", R.drawable.earth);
+        planet[4] = new Planet(titles[4],"dfhdshklashgfs","hfhf", R.drawable.mars);
+        planet[5] = new Planet(titles[5],"dfhdshklashgfs","hfhf", R.drawable.jupiter);
+        planet[6] = new Planet(titles[6],"dfhdshklashgfs","hfhf", R.drawable.saturn);
+        planet[7] = new Planet(titles[7],"dfhdshklashgfs","hfhf", R.drawable.uranus);
+        planet[8] = new Planet(titles[8],"dfhdshklashgfs","hfhf", R.drawable.neptune);*/
+
+        View view = inflater.inflate(R.layout.list_fragment, container, false);
+        return view;
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
@@ -30,35 +54,20 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
         getListView().setOnItemClickListener(this);
     }
 
-    @Override
-    public View onCreateView(AdapterView<?> adapterView, LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        for(int i = 0; i < 9; i++){ //name, desc, mindesc, id
-            planet[i] = new Planet(adapterView.getItemAtPosition(i).toString(),"fadsf","fds", );
-        }
-
-        View view = inflater.inflate(R.layout.list_fragment, container, false);
-        return view;
-    }
-
-
-
-
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         //Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("KEY", planet[i]);
             Intent newIntent = new Intent(getActivity().getApplicationContext(), Main2Activity.class);
-            newIntent.setAction(Intent.ACTION_SEND);
-            newIntent.setType("text/plain");
-            newIntent.putExtra(Intent.EXTRA_TEXT, adapterView.getItemAtPosition(i).toString());
+            newIntent.putExtras(bundle);
             startActivity(newIntent);
         }else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
-
             Bundle bundle = new Bundle();
-            bundle.putString("KEY", adapterView.getItemAtPosition(i).toString());
+            bundle.putParcelable("KEY", planet[i]);
             FragmentViewer frag = new FragmentViewer();
             frag.setArguments(bundle);
 
