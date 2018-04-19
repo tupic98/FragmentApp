@@ -31,15 +31,7 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
         for(int i = 0; i<planet.length; i++){
             planet[i] = new Planet(titles[i],desc[i],mindesc[i], img.getResourceId(i, -1));
         }
-       /* planet[0] = new Planet(titles[0],"dfhdshklashgfs","hfhf", R.drawable.sun);
-        planet[1] = new Planet(titles[1],"dfhdshklashgfs","hfhf", R.drawable.mercury);
-        planet[2] = new Planet(titles[2],"dfhdshklashgfs","hfhf", R.drawable.venus);
-        planet[3] = new Planet(titles[3],"dfhdshklashgfs","hfhf", R.drawable.earth);
-        planet[4] = new Planet(titles[4],"dfhdshklashgfs","hfhf", R.drawable.mars);
-        planet[5] = new Planet(titles[5],"dfhdshklashgfs","hfhf", R.drawable.jupiter);
-        planet[6] = new Planet(titles[6],"dfhdshklashgfs","hfhf", R.drawable.saturn);
-        planet[7] = new Planet(titles[7],"dfhdshklashgfs","hfhf", R.drawable.uranus);
-        planet[8] = new Planet(titles[8],"dfhdshklashgfs","hfhf", R.drawable.neptune);*/
+
 
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
