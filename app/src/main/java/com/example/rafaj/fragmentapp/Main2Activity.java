@@ -15,7 +15,8 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        title = findViewById(R.id.textId);
+
+        title = findViewById(R.id.titless);
         mindesc = findViewById(R.id.mindesc);
         desc = findViewById(R.id.desc);
         image = findViewById(R.id.imageicon);
@@ -24,20 +25,18 @@ public class Main2Activity extends AppCompatActivity {
         String intentAction = callingIntent.getAction();
         String intentType = callingIntent.getType();
 
-        if (Intent.ACTION_SEND.equals(intentAction) && intentType != null){
-                handleReceivedText(callingIntent);
-        }
+        handleReceivedText(callingIntent);
 
     }
 
     private void handleReceivedText(Intent intent){
-       Planet planet = intent.getExtras().getParcelable("KEY");
+        Planet planet = intent.getExtras().getParcelable("KEY");
 
-        if (title != null && mindesc != null && desc != null && image != null){
+        if (title != null && mindesc != null && desc != null){
             title.setText(planet.getNombre());
             mindesc.setText(planet.getMindescription());
             desc.setText(planet.getDescription());
-            image.setImageResource(planet.getId());
+            image.setImageResource(planet.getImage());
         }
     }
 }
