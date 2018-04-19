@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="minDesc">
+        <item>Distancia al sol: 0km</item>
+        <item>Distancia al sol: 57.910.000 km</item>
+        <item>Distancia al sol: 108.200.000 km</item>
+        <item>Distancia al sol: 146.600.000 km</item>
+        <item>Distancia al sol: 227.460.000 km</item>
+        <item>Distancia al sol: 778.330.000 km</item>
+        <item>Distancia al sol: 1.429.400.000 km</item>
+        <item>Distancia al sol: 2.870.990.000 km</item>
+        <item>Distancia al sol: 4.504.300.000 km</item>
+    </string-array>
+</resources>
