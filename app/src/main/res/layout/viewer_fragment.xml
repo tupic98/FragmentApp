@@ -2,47 +2,45 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <RelativeLayout
-        android:id="@+id/TopBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true">
-        <ImageView
-            android:id="@+id/imageicon"
-            android:layout_width="wrap_content"
-            android:layout_height="110dp"/>
-        <TextView
+    android:orientation="vertical"
+    android:layout_margin="4dp">
+        <RelativeLayout
+            android:id="@+id/TopBar"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:id="@+id/textId"
-            android:layout_alignBaseline="@id/imageicon"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true">
+            <ImageView
+                android:id="@+id/imageicon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:id="@+id/titless"
+                android:layout_alignBaseline="@id/imageicon"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textColor="#000000"
+                android:layout_toEndOf="@+id/imageicon"
+                android:layout_toRightOf="@+id/imageicon" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/mindesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TopBar"
+            android:textSize="14sp"
+            android:layout_margin="4dp"
             android:gravity="center"
-            android:textSize="24sp"
-            android:textColor="#000000"
-            android:layout_toEndOf="@+id/imageicon"
-            android:layout_toRightOf="@+id/imageicon" />
-    </RelativeLayout>
-    <TextView
-        android:id="@+id/mindesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/TopBar"
-        android:textSize="14sp"
-        android:gravity="center"
-        android:textColor="#000"
-        />
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_below="@+id/mindesc"/>
-
-
-
-
-
+            />
+        <TextView
+            android:id="@+id/desc"
+            android:layout_margin="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:layout_below="@+id/mindesc"
+            />
 </RelativeLayout>
