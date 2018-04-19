@@ -22,7 +22,7 @@ public class FragmentViewer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.viewer_fragment, container, false);
 
-        title = view.findViewById(R.id.textId);
+        title = view.findViewById(R.id.titless);
         description = view.findViewById(R.id.desc);
         mindescription = view.findViewById(R.id.mindesc);
         image = view.findViewById(R.id.imageicon);
@@ -34,7 +34,7 @@ public class FragmentViewer extends Fragment {
             title.setText(planet.getNombre());
             mindescription.setText(planet.getMindescription());
             description.setText(planet.getDescription());
-            image.setImageResource(planet.getId());
+            image.setImageResource(planet.getImage());
         }
 
         return view;
